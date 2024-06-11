@@ -1,0 +1,220 @@
+.siteContainer {
+    @apply flex-1 fixed left-[9999px] top-[9999px];
+    &.activeSiteContainer {
+        position: static;
+    }
+}
+
+//div::-webkit-scrollbar {
+//    height: 4px;
+//}
+//
+//div::-webkit-scrollbar-thumb {
+//    background: black;
+//}
+
+.sideWrapper {
+    @apply flex flex-col w-full overflow-hidden;
+}
+
+.topWrapper {
+    @apply absolute top-0 bottom-0 w-full flex flex-col;
+    .theContainer {
+        @apply w-full flex;
+    }
+
+    .menu {
+        @apply fixed z-10 right-[0px] cursor-pointer top-[0] flex justify-center items-center h-[64px] w-[50px] bg-[#CBD9FF];
+        .icon {
+            @apply text-[20px] font-bold;
+        }
+
+    }
+
+    .siteController {
+        @apply flex h-[64px] w-full items-center bg-[#CBD9FF] px-[10px] box-border overflow-x-scroll;
+        flex: 0 0 64px;
+    }
+
+    .searchContentWrap {
+        flex: 1;
+        overflow: hidden;
+    }
+
+    //.drawer {
+    //    flex: 0 0 60px;
+    //}
+}
+
+@keyframes rotate {
+    0% {
+        transform: rotate(0deg);
+    }
+    50% {
+        transform: rotate(90deg);
+    }
+    100% {
+        transform: rotate(0deg);
+    }
+}
+
+.searchItemContainer {
+    @apply flex justify-center items-center mr-[8px] ;
+
+    .searchItem {
+        @apply flex justify-center items-center cursor-pointer px-[18px] text-[13px]  h-[26px] bg-[#EDEFF7] rounded-[26px] transition-all duration-100;
+        img {
+            @apply rounded-[6px] w-[16px] mr-[8px];
+        }
+    }
+
+    .refreshWrap {
+        box-shadow: 0 4px 8px 0 #00000040;
+        @apply ml-[4px]  w-[24px] h-[24px] hidden rounded-[24px] cursor-pointer;
+
+        .refresh {
+            @apply w-[24px] h-[24px] rounded-[24px] flex justify-center items-center  bg-white overflow-hidden;
+
+            &:hover {
+                animation: rotate .4s ease-in;
+            }
+
+            img {
+                @apply w-[14px] h-[14px] block;
+            }
+        }
+    }
+
+
+    &.active {
+        .searchItem {
+            @apply bg-white text-[#0A4DFE] font-bold;
+            box-shadow: 0px 4px 8px 0px #00000040;
+        }
+
+        .refreshWrap {
+            @apply flex justify-center items-center cursor-pointer;
+            flex-shrink: 0;
+        }
+    }
+}
+
+.challengeDialog {
+    @apply fixed top-0 left-0 right-0 bottom-0 flex justify-center items-center bg-black bg-opacity-50 text-black;
+    .content {
+        @apply bg-white p-[16px] rounded-[6px] w-[80%] max-w-[340px];
+    }
+
+    .title {
+        @apply text-[18px] font-medium;
+    }
+
+    .description {
+        @apply text-sm text-gray-500 mt-[10px];
+    }
+
+    .button {
+        @apply mt-[16px] inline-flex cursor-pointer justify-center rounded-md border border-transparent bg-blue-100 px-4 py-2 text-sm font-medium text-blue-900 hover:bg-blue-200 focus:outline-none focus-visible:ring-2 focus-visible:ring-blue-500 focus-visible:ring-offset-2;
+    }
+}
+
+.conversation {
+    @apply flex overflow-hidden flex-col relative transition-all ltr:pr-0 rtl:pl-0 bg-[#F6F6F6];
+    .chatList {
+        @apply relative mt-4 mb-4 flex-1 overflow-y-auto;
+
+        .messageItemOuter {
+            @apply relative w-full px-4 flex box-border;
+
+            .roleIconBox {
+                @apply flex-none w-[24px] h-[24px] flex items-center justify-center mt-[8px] rounded-full;
+            }
+
+            .aiIcon {
+                @apply w-full h-full;
+            }
+
+            .userIcon {
+                @apply w-[20px] h-[20px];
+            }
+
+            .roleTitle {
+                @apply pl-2 text-sm font-semibold;
+            }
+
+            .contentArea {
+                @apply min-w-48  max-w-[800px] relative;
+                &:after {
+                    content: "";
+                    display: block;
+                    width: 0;
+                    height: 0;
+                    border: 7px solid transparent;
+                    position: absolute;
+                    top: 16px;
+                }
+
+            }
+
+            .r:after {
+                @apply  border-l-[#4948DB];
+                right: -14px;
+            }
+
+            .l:after {
+                @apply  border-r-white;
+                left: -14px;
+            }
+
+
+            .modelTab {
+                @apply w-full  h-[29px] p-[2px] bg-[#F3F4F9] rounded-[50px] flex justify-start text-[12px];
+
+                .tabItem {
+                    @apply w-[33.3%] h-full flex justify-center items-center cursor-pointer text-[12px] px-2 relative;
+                    &.active {
+                        @apply bg-white rounded-[12px];
+                    }
+                    img {
+                        @apply mr-[4px];
+                    }
+                }
+
+            }
+
+        }
+    }
+
+    *::-webkit-scrollbar {
+        width: 4px;
+        height: 4px;
+    }
+
+    *::-webkit-scrollbar-thumb {
+        background: #EDEFF7;
+        border-radius: 2px;
+    }
+
+    .mainInputArea {
+        @apply px-[8px] pb-[8px] gap-1 bg-white rounded-tl-[20px] rounded-tr-[20px];
+
+        .chatInputTopBar {
+            @apply flex justify-between mb-[6px] px-1 items-center mt-[16px];
+        }
+        .chatInputArea {
+            @apply flex-col items-center z-10 relative min-h-[97px] w-[100%] rounded-xl border-[1px] flex-1 pb-[4px] border-solid border-[transparent] cursor-text;
+
+            .antInput {
+                @apply w-full h-full mt-1 border-[transparent];
+            }
+
+            .inputBottomArea {
+                @apply flex justify-between items-end mt-1 gap-2 px-1 ;
+            }
+        }
+    }
+
+    .actionButton {
+        @apply w-[28px] h-[28px] flex items-center justify-center hover:bg-[#F2F5FF] rounded-[4px] cursor-pointer;
+    }
+}

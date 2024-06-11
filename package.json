@@ -1,0 +1,103 @@
+{
+  "name": "BrainyAI",
+  "displayName": "BrainyAI",
+  "version": "0.0.7",
+  "description": "",
+  "scripts": {
+    "dev": "plasmo dev",
+    "build": "plasmo build",
+    "build:staging": "plasmo build --tag=staging",
+    "package": "plasmo package",
+    "prepare": "husky",
+    "lint": "npx eslint . --fix",
+    "test": "echo \"hello test\""
+  },
+  "dependencies": {
+    "@ant-design/icons": "^5.3.5",
+    "@headlessui/react": "^1.7.18",
+    "@plasmohq/messaging": "^0.6.2",
+    "@plasmohq/storage": "^1.9.3",
+    "@ungap/custom-elements": "^1.3.0",
+    "ali-oss": "^6.20.0",
+    "firebase": "^10.12.1",
+    "github-markdown-css": "^5.5.1",
+    "globals": "^15.2.0",
+    "highlight.js": "^11.9.0",
+    "immutability-helper": "^3.1.1",
+    "js-sha3": "^0.9.3",
+    "localforage": "^1.10.0",
+    "lottie-web": "^5.12.2",
+    "markdown-it": "^14.1.0",
+    "match-sorter": "^6.3.4",
+    "moment": "^2.30.1",
+    "plasmo": "0.86.1",
+    "react": "18.2.0",
+    "react-dnd": "^16.0.1",
+    "react-dnd-html5-backend": "^16.0.1",
+    "react-dom": "18.2.0",
+    "react-router-dom": "^6.22.3",
+    "remark-gfm": "^3.0.1",
+    "sort-by": "^1.2.0",
+    "websocket-as-promised": "^2.0.1"
+  },
+  "devDependencies": {
+    "@eslint/js": "^8.56.0",
+    "@ianvs/prettier-plugin-sort-imports": "4.1.1",
+    "@types/chrome": "0.0.258",
+    "@types/markdown-it": "^14.1.1",
+    "@types/node": "20.11.5",
+    "@types/react": "18.2.48",
+    "@types/react-dom": "18.2.18",
+    "antd": "^5.17.2",
+    "autoprefixer": "^10.4.18",
+    "console-browserify": "^1.2.0",
+    "eslint": "^8.56.0",
+    "husky": "^9.0.11",
+    "path-browserify": "^1.0.0",
+    "postcss": "^8.4.35",
+    "prettier": "3.2.4",
+    "process": "^0.11.10",
+    "tailwindcss": "^3.4.1",
+    "typescript": "5.3.3",
+    "typescript-eslint": "^7.8.0",
+    "url": "^0.11.0"
+  },
+  "manifest": {
+    "web_accessible_resources": [
+      {
+        "resources": [
+          "options.html",
+          "tabs/greeting.html",
+          "resources/**/*.json",
+          "resources/**/*.js"
+        ],
+        "matches": [
+          "<all_urls>"
+        ]
+      }
+    ],
+    "host_permissions": [
+      "https://*/*",
+      "wss://*/*"
+    ],
+    "action": {
+      "default_title": "BrainyAI"
+    },
+    "permissions": [
+      "declarativeNetRequest",
+      "scripting",
+      "tabs",
+      "browsingData",
+      "storage"
+    ],
+    "declarative_net_request": {
+      "rule_resources": [
+        {
+          "id": "user_agent_modifier",
+          "enabled": true,
+          "path": "~rulesets/rule.json"
+        }
+      ]
+    }
+  }
+}

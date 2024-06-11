@@ -1,0 +1,60 @@
+// don't import base here
+@tailwind components;
+@tailwind utilities;
+
+.popupPrompt {
+    @apply max-h-[300px] min-w-[224px] bg-white flex flex-col py-[2px];
+
+    .header {
+        @apply h-[34px] flex flex-row justify-between items-center px-[16px];
+        user-select: none;
+    }
+
+    .title {
+        @apply flex items-center text-gray-800 font-bold text-sm;
+    }
+
+    .iconImage {
+        @apply w-[20px] h-[20px];
+    }
+
+    .listWrap {
+        @apply max-h-[300px] overflow-auto;
+    }
+
+    .listItem {
+        @apply h-[40px];
+
+        &:hover {
+            @apply bg-[#F2F5FF];
+        }
+
+        .listContent {
+            @apply flex justify-between cursor-pointer px-[16px];
+        }
+
+        .leading {
+            @apply flex;
+        }
+
+        .leadingIcon {
+            @apply w-[16px] h-[16px] flex justify-start items-center;
+        }
+
+        .leadingText {
+            @apply flex justify-start items-center text-[13px] text-['#5E5E5E'] pl-[8px] max-w-[200px] overflow-hidden truncate;
+        }
+
+        .pinIcon {
+            @apply w-[20px] h-[20px] flex justify-center items-center cursor-pointer;
+        }
+    }
+}
+
+.popupQuickConfig {
+    @apply w-[224px] max-h-[127px] min-h-[86px] flex flex-col justify-center items-start;
+    & > div {
+        @apply h-[40px] flex w-[100%] justify-start items-center text-[#5E5E5E] text-[15px] font-[400] pl-[16px] cursor-pointer hover:bg-[#F2F5FF] box-border;
+    }
+}
+

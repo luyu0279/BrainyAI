@@ -1,0 +1,21 @@
+@import "base";
+
+.afterCaptchaBanner {
+    @apply h-[53px] flex justify-center items-center text-[14px] px-[16px] box-border;
+    background: linear-gradient(298.91deg, #0AFE4E -13.62%, #0A4DFE 18.01%, #CB00FE 102.24%);
+    p {
+        @apply text-white text-[20px] ml-[12px] mr-[43px];
+    }
+    .backButton {
+        @apply flex justify-center items-center px-[16px] py-[8px] bg-white rounded-[8px];
+        img {
+            @apply w-[20px] h-[20px] mr-[12px];
+        }
+    }
+    .backText {
+        @apply mr-[10px] text-black;
+    }
+    .setting {
+        @apply text-[24px];
+    }
+}

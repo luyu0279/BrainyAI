@@ -1,0 +1,23 @@
+.modelModal {
+    @apply pb-0;
+    margin: 0 auto !important;
+    height: calc(100vh - 60px);
+    max-width: 100vw !important;
+    .ant-modal-content {
+        height: calc(100vh - 60px);
+        @apply p-0 pb-2 overflow-y-scroll;
+    }
+}
+
+.modelPopover {
+    .ant-popover-inner {
+        @apply px-0;
+    }
+}
+.modelUpload {
+    .ant-modal-content {
+        padding: 0;
+        background: transparent;
+        box-shadow: none;
+    }
+}

@@ -1,0 +1,191 @@
+[
+    {
+        "id": 1,
+        "priority": 1,
+        "action": {
+            "type": "modifyHeaders",
+            "requestHeaders": [
+                {
+                    "header": "User-Agent",
+                    "value": "Mozilla/5.0 (iPhone; CPU iPhone OS 16_6 like Mac OS X) AppleWebKit/605.1.15 (KHTML, like Gecko) Version/16.6 Mobile/15E148 Safari/604.1",
+                    "operation": "set"
+                }
+            ]
+        },
+        "condition": {
+            "urlFilter": "|*--in-mobile",
+            "resourceTypes": [
+                "main_frame",
+                "sub_frame"
+            ]
+        }
+    },
+    {
+        "id": 2,
+        "priority": 1,
+        "action": {
+            "type": "modifyHeaders",
+            "responseHeaders": [
+                {
+                    "header": "Content-Security-Policy",
+                    "operation": "remove"
+                },
+                {
+                    "header": "X-Frame-Options",
+                    "operation": "remove"
+                }
+            ]
+        },
+        "condition": {
+            "urlFilter": "|*--r-csp",
+            "resourceTypes": [
+                "main_frame",
+                "sub_frame"
+            ]
+        }
+    },
+    {
+        "id": 3,
+        "priority": 1,
+        "action": {
+            "type": "modifyHeaders",
+            "requestHeaders": [
+                {
+                    "header": "Origin",
+                    "value": "https://copilot.microsoft.com",
+                    "operation": "set"
+                }
+            ]
+        },
+        "condition": {
+            "urlFilter": "|wss://sydney.bing.com*",
+            "resourceTypes": [
+                "main_frame",
+                "sub_frame",
+                "websocket"
+            ]
+        }
+    },
+    {
+        "id": 4,
+        "priority": 1,
+        "action": {
+            "type": "modifyHeaders",
+            "requestHeaders": [
+                {
+                    "header": "Referer",
+                    "value": "https://copilot.microsoft.com/",
+                    "operation": "set"
+                }
+            ]
+        },
+        "condition": {
+            "urlFilter": "|*--pif=1",
+            "resourceTypes": [
+                "main_frame",
+                "sub_frame"
+            ]
+        }
+    },
+    {
+        "id": 5,
+        "priority": 1,
+        "action": {
+            "type": "modifyHeaders",
+            "requestHeaders": [
+                {
+                    "header": "Origin",
+                    "value": "https://kimi.moonshot.cn",
+                    "operation": "set"
+                },
+                {
+                    "header": "Referer",
+                    "value": "https://kimi.moonshot.cn/",
+                    "operation": "set"
+                }
+            ]
+        },
+        "condition": {
+            "urlFilter": "https://kimi.moonshot.cn/api*",
+            "resourceTypes": [
+                "main_frame",
+                "sub_frame",
+                "xmlhttprequest"
+            ]
+        }
+    },
+    {
+        "id": 6,
+        "priority": 1,
+        "action": {
+            "type": "modifyHeaders",
+            "requestHeaders": [
+                {
+                    "header": "Origin",
+                    "value": "https://chatgpt.com",
+                    "operation": "set"
+                },
+                {
+                    "header": "Referer",
+                    "value": "https://chatgpt.com/",
+                    "operation": "set"
+                }
+            ]
+        },
+        "condition": {
+            "urlFilter": "https://chatgpt.com/*",
+            "resourceTypes": [
+                "xmlhttprequest"
+            ]
+        }
+    },
+    {
+        "id": 7,
+        "priority": 1,
+        "action": {
+            "type": "modifyHeaders",
+            "requestHeaders": [
+                {
+                    "header": "Origin",
+                    "value": "https://www.perplexity.ai",
+                    "operation": "set"
+                }
+            ]
+        },
+        "condition": {
+            "urlFilter": "wss://www.perplexity.ai/socket.io/?EIO=4*",
+            "resourceTypes": [
+                "main_frame",
+                "sub_frame",
+                "websocket"
+            ]
+        }
+    },
+    {
+        "id": 8,
+        "priority": 1,
+        "action": {
+            "type": "modifyHeaders",
+            "requestHeaders": [
+                {
+                    "header": "Origin",
+                    "value": "https://copilot.microsoft.com",
+                    "operation": "set"
+                },
+                {
+                    "header": "Referer",
+                    "value": "https://copilot.microsoft.com/",
+                    "operation": "set"
+                }
+            ]
+        },
+        "condition": {
+            "urlFilter": "|*--cua=1",
+            "resourceTypes": [
+                "main_frame",
+                "sub_frame",
+                "xmlhttprequest"
+            ]
+        }
+    }
+]
