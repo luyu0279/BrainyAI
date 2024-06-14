@@ -14,6 +14,7 @@
 </p>
 
 <br>
+
 ## Introduction
 
 🧠**BrainyAI** is a completely free Chrome browser extension. Users only need to log in once to various AI websites, and then they can bring the capabilities of large models into their daily work habits and scenarios using BrainyAI. With a convenient sidebar, **BrainyAI** offers features such as AI chat aggregation, AI search, AI reading, and enhanced AI web browsing.
