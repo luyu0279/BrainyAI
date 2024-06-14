@@ -1,5 +1,5 @@
 {
-  "name": "BrainyAI",
+  "name": "brainy_ai",
   "displayName": "BrainyAI",
   "version": "0.0.7",
   "description": "",
@@ -8,9 +8,7 @@
     "build": "plasmo build",
     "build:staging": "plasmo build --tag=staging",
     "package": "plasmo package",
-    "prepare": "husky",
-    "lint": "npx eslint . --fix",
-    "test": "echo \"hello test\""
+    "lint": "npx eslint . --fix"
   },
   "dependencies": {
     "@ant-design/icons": "^5.3.5",
