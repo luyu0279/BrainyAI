@@ -102,7 +102,8 @@ This anonymous usage data is essential for continuous improvement and does not r
 
 ### Getting Started
 
-First, run the development server:
+First, install the dependencies:
+
 ```bash
 npm install pnpm -g
 ```
@@ -111,11 +112,8 @@ npm install pnpm -g
 pnpm install
 ```
 
-```bash
-npx husky init 
-```
-
 Then, start the development server:
+
 ```bash
 pnpm dev
 ```
