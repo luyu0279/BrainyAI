@@ -24,7 +24,7 @@ When using **BrainyAI**, users don’t need to leave their current web page. The
 <br>
 
 
-## Key Features
+## Key features
 
 - 🤖 Group Chat with Top-Tier AIs at Once, for Free
 - 🔍 Multiple Answers from Top-Tier AI Search Engines, for Free
@@ -100,7 +100,7 @@ This anonymous usage data is essential for continuous improvement and does not r
 ## For developers
 
 
-### Getting Started
+### Getting started
 
 First, install the dependencies:
 
