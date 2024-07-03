@@ -66,7 +66,7 @@ When using **BrainyAI**, users don’t need to leave their current web page. The
 | Gemma-7b    | perplexity.ai     | Supported     |
 | llava-v1.6    | perplexity.ai     | Supported     |
 | Mistral-8×22b| perplexity.ai     | Supported     |
-| Glaude 3     | claude.ai     | Soon     |
+| Claude 3     | claude.ai     | Soon     |
 
 
 More is coming.
