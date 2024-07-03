@@ -2,7 +2,7 @@
 <img src="https://raw.githubusercontent.com/luyu0279/BrainyAi/main/misc/logo.png" width="350px">
 <h2>BrainyAI：一个免费且开源的浏览器侧边栏插件，提供了像 Sider、Monica 和 Merlin 等产品的免费替代方案。 </h2>
 
-[![GitHub license](https://img.shields.io/badge/license-GLP%203.0-blue)](https://github.com/luyu0279/BrainyAi/blob/main/LICENSE)
+[![GitHub license](https://img.shields.io/badge/license-GPL%203.0-blue)](https://github.com/luyu0279/BrainyAi/blob/main/LICENSE)
 
 [English](README.md) ｜ 简体中文
 <p>
