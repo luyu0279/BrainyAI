@@ -55,7 +55,7 @@
 | Gemma-7b       | perplexity.ai         | 支持     |
 | llava-v1.6     | perplexity.ai         | 支持     |
 | Mistral-8×22b  | perplexity.ai         | 支持     |
-| Glaude 3       | claude.ai             | 即将推出   |
+| Claude 3       | claude.ai             | 即将推出   |
 
 
 More is coming.
