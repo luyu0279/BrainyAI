@@ -12,7 +12,7 @@ import {useLocation, useNavigate} from "react-router-dom";
 import NewChatIcon from "data-base64:~assets/new_chat.svg";
 import MenuArrowIcon from "data-base64:~assets/menu_arrow.svg";
 import eventBus from "~libs/EventBus";
-import {SidePanelContext} from "~porvider/sidepanel/SidePanelProvider";
+import {SidePanelContext} from "~provider/sidepanel/SidePanelProvider";
 
 export interface IDrawerNaviItem {
     path: PanelRouterPath

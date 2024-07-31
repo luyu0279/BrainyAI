@@ -1,6 +1,6 @@
 import React, {useContext, useEffect, useRef, useState} from "react";
 import * as style from "~style/panel-main.module.scss";
-import {ISearchSiteItem, SidePanelContext, SiteName} from "~porvider/sidepanel/SidePanelProvider";
+import {ISearchSiteItem, SidePanelContext, SiteName} from "~provider/sidepanel/SidePanelProvider";
 import {sendToBackground} from "@plasmohq/messaging";
 import {addCspParamsToUrl, addMobileHeaderToUrl, appendParamToUrl, IS_OPEN_IN_PLUGIN} from "~utils";
 

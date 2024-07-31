@@ -2,12 +2,12 @@ import {RouterProvider} from "react-router-dom";
 import {router} from "~sidepanel/router";
 import React, {useContext} from "react";
 import type {PlasmoGetStyle} from "plasmo";
-import SidePanelProvider, {SidePanelContext} from "~porvider/sidepanel/SidePanelProvider";
+import SidePanelProvider, {SidePanelContext} from "~provider/sidepanel/SidePanelProvider";
 import styleText from 'data-text:~style/panel-main.module.scss';
 import * as style from "~style/panel-main.module.scss";
 import '~base.scss';
-import CommonShortcutProvider from "~porvider/CommonShortcutProvider";
-import GoogleAnalyticsProvider from "~porvider/GoogleAnalyticsProvider";
+import CommonShortcutProvider from "~provider/CommonShortcutProvider";
+import GoogleAnalyticsProvider from "~provider/GoogleAnalyticsProvider";
 
 export const getStyle: PlasmoGetStyle = () => {
     const style = document.createElement("style");

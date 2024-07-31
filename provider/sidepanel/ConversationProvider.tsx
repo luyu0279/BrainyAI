@@ -1,7 +1,7 @@
 import React, {useContext, useEffect, useState} from "react";
-import {SidePanelContext} from "~porvider/sidepanel/SidePanelProvider";
+import {SidePanelContext} from "~provider/sidepanel/SidePanelProvider";
 import type {IAskAi} from "~libs/open-ai/open-panel";
-import {ModelManagementContext, type Ms} from "~porvider/ModelManagementProvider";
+import {ModelManagementContext, type Ms} from "~provider/ModelManagementProvider";
 import {createUuid} from "~utils";
 import eventBus from "~libs/EventBus";
 

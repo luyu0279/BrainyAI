@@ -2,9 +2,9 @@ import {createBrowserRouter, useLocation} from "react-router-dom";
 import Index from "~options/pages";
 import ShortcutMenu from "~options/pages/ShortcutMenu";
 import Layout from "~options/layout";
-import OptionsProvider from "~porvider/Options";
+import OptionsProvider from "~provider/Options";
 import {Fragment, useContext, useEffect} from "react";
-import {GoogleAnalyticsContext} from "~porvider/GoogleAnalyticsProvider";
+import {GoogleAnalyticsContext} from "~provider/GoogleAnalyticsProvider";
 
 export const PATH_SETTING_SIDEBAR = "path_shortcut";
 export const PATH_SETTING_CONTACT_US = "path_contact_us";

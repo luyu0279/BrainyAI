@@ -1,7 +1,7 @@
 import IconLogo from "data-base64:~assets/icon_ask_ai_small.svg";
 import IconEnter from "data-base64:~assets/icon_enter.svg";
 import React, {useContext, useEffect, useRef} from "react";
-import {SidePanelContext} from "~porvider/sidepanel/SidePanelProvider";
+import {SidePanelContext} from "~provider/sidepanel/SidePanelProvider";
 import {PanelRouterPath} from "~libs/constants";
 import { MESSAGE_ACTION_SYNC_SEARCH_TEXT} from "~utils";
 import {Logger} from "~utils/logger";
