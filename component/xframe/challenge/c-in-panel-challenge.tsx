@@ -6,7 +6,7 @@ import {
     WINDOW_FOR_REMOVE_STORAGE_KEY
 } from "~utils";
 import {sendToBackground} from "@plasmohq/messaging";
-import {getSearchSiteByName, SiteName} from "~porvider/sidepanel/SidePanelProvider";
+import {getSearchSiteByName, SiteName} from "~provider/sidepanel/SidePanelProvider";
 import { Storage } from "@plasmohq/storage";
 import XFrameDialog from "~component/xframe/dialog";
 

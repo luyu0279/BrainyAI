@@ -1,7 +1,7 @@
 import type {PlasmoCSConfig, PlasmoGetStyle} from "plasmo";
 import CInPanelChallenge from "~component/xframe/challenge/c-in-panel-challenge";
 import styleText from 'data-text:~base.scss';
-import {SiteName} from "~porvider/sidepanel/SidePanelProvider";
+import {SiteName} from "~provider/sidepanel/SidePanelProvider";
 import {useEffect} from "react";
 import {openInPlugin} from "~utils";
 

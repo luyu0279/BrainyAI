@@ -1,10 +1,10 @@
 import React, {Fragment, memo, useContext, useEffect, useRef, useState} from "react";
-import {SidePanelContext} from "~porvider/sidepanel/SidePanelProvider";
+import {SidePanelContext} from "~provider/sidepanel/SidePanelProvider";
 import styleText, * as style from "~style/panel-main.module.scss";
 import {Input, List, message, Modal, Popover, Tooltip, type UploadProps} from "antd";
 import {CaretDownOutlined, LoadingOutlined, UploadOutlined} from "@ant-design/icons";
 import {ConversationResponse, ResponseMessageType} from "~libs/open-ai/open-ai-interface";
-import {ConversationContext, ConversationMessage, ConversationProvider} from "~porvider/sidepanel/ConversationProvider";
+import {ConversationContext, ConversationMessage, ConversationProvider} from "~provider/sidepanel/ConversationProvider";
 import {IAskAi, openPanelSearchInContent} from "~libs/open-ai/open-panel";
 import {
     createUuid,
@@ -18,7 +18,7 @@ import {
 } from "~utils";
 import "~style/markdown.scss";
 import "~style/modal.scss";
-import ModelManagementProvider, {type M, ModelManagementContext, type Ms,} from "~porvider/ModelManagementProvider";
+import ModelManagementProvider, {type M, ModelManagementContext, type Ms,} from "~provider/ModelManagementProvider";
 import {type ChatError, ErrorCode} from "~utils/errors";
 import hljs from 'highlight.js';
 import "highlight.js/styles/idea.css";

@@ -13,7 +13,7 @@ import {useEffect, useRef, useState} from "react";
 import {getLatestState} from "~utils";
 import {justOpenPanel} from "~libs/open-ai/open-panel";
 import lottie from "lottie-web";
-import CommonShortcutProvider from "~porvider/CommonShortcutProvider";
+import CommonShortcutProvider from "~provider/CommonShortcutProvider";
 
 const guideList = [
     {

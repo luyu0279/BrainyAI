@@ -12,7 +12,7 @@ import CTooltip from "~component/common/CTooltip";
 import {DownOutlined} from '@ant-design/icons';
 import {useStorage} from "@plasmohq/storage/dist/hook";
 import {PromptTypes} from "~options/constant/PromptTypes";
-import {OptionsContext} from "~porvider/Options";
+import {OptionsContext} from "~provider/Options";
 import IconDeleteRed from "data-base64:~assets/icon_delete_red.svg";
 import {items} from "~options/constant/PromptLanguage";
 import * as Icons from '@ant-design/icons';

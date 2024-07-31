@@ -1,6 +1,6 @@
 import type {PlasmoCSConfig} from "plasmo";
 import CInStandaloneWindowChallenge from "~component/xframe/challenge/c-in-standalone-window-challenge";
-import {SiteName} from "~porvider/sidepanel/SidePanelProvider";
+import {SiteName} from "~provider/sidepanel/SidePanelProvider";
 
 export const config: PlasmoCSConfig = {
     matches: ['https://*.phind.com/*--oppcw*'],

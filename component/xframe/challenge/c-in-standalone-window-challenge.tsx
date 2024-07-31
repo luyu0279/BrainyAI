@@ -5,7 +5,7 @@ import {
 } from "~utils";
 import {sendToBackground} from "@plasmohq/messaging";
 import {Storage} from "@plasmohq/storage";
-import type {SiteName} from "~porvider/sidepanel/SidePanelProvider";
+import type {SiteName} from "~provider/sidepanel/SidePanelProvider";
 
 export default function CInStandaloneWindowChallenge({verifySuccessValidator, siteName, checkInterval}: {
     verifySuccessValidator(): boolean,

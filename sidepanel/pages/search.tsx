@@ -1,7 +1,7 @@
 import styleText from 'data-text:~style/panel-main.module.scss';
 import * as style from "~style/panel-main.module.scss";
 import {useContext, useEffect, useRef} from "react";
-import {SidePanelContext} from "~porvider/sidepanel/SidePanelProvider";
+import {SidePanelContext} from "~provider/sidepanel/SidePanelProvider";
 import SearchSiteItem from "~component/sidepanel/SearchSIteItem";
 import SearchSiteFrame from "~component/sidepanel/SearchSiteFrame";
 import {

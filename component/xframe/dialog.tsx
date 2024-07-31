@@ -1,6 +1,6 @@
 import styleText from 'data-text:~style/panel-main.module.scss';
 import type {PlasmoGetStyle} from "plasmo";
-import type {SiteName} from "~porvider/sidepanel/SidePanelProvider";
+import type {SiteName} from "~provider/sidepanel/SidePanelProvider";
 
 export const getStyle: PlasmoGetStyle = () => {
     const style = document.createElement("style");
