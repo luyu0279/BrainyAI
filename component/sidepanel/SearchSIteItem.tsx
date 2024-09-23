@@ -1,4 +1,4 @@
-import {ISearchSiteItem, SidePanelContext} from "~porvider/sidepanel/SidePanelProvider";
+import {ISearchSiteItem, SidePanelContext} from "~provider/sidepanel/SidePanelProvider";
 import styleText from 'data-text:~style/panel-main.module.scss';
 import * as style from "~style/panel-main.module.scss";
 import {useContext, useEffect, useRef} from "react";

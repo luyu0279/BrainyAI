@@ -3,11 +3,11 @@ import SidePanelIndex from "~sidepanel/pages/search";
 import Conversation from "~sidepanel/pages/conversation";
 import {PanelRouterPath} from "~libs/constants";
 import React, {Fragment,  useContext, useEffect, useState} from "react";
-import {SidePanelContext} from "~porvider/sidepanel/SidePanelProvider";
+import {SidePanelContext} from "~provider/sidepanel/SidePanelProvider";
 import {OpenPanelType} from "~libs/open-ai/open-panel";
 import Header from "~component/sidepanel/Header";
 import SearchHome from "~sidepanel/pages/search-home";
-import {GoogleAnalyticsContext} from "~porvider/GoogleAnalyticsProvider";
+import {GoogleAnalyticsContext} from "~provider/GoogleAnalyticsProvider";
 
 const DetermineRedirect = () => {
     const {panelOpenType} = useContext(SidePanelContext);

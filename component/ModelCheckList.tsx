@@ -2,7 +2,7 @@ import * as React from 'react';
 import {CloseCircleOutlined} from "@ant-design/icons";
 import {Checkbox, Tooltip} from "antd";
 import {useContext, useEffect, useRef, useState} from "react";
-import {type CMsItem, type M, ModelManagementContext} from "~porvider/ModelManagementProvider";
+import {type CMsItem, type M, ModelManagementContext} from "~provider/ModelManagementProvider";
 import CloseCircleBlue from "data-base64:~assets/CloseCircle_blue.svg";
 import RedC from "data-base64:~assets/red_c.png";
 import GreenC from "data-base64:~assets/green_c.png";
@@ -13,7 +13,7 @@ import IconLock from "data-base64:~assets/lock.svg";
 import NewTag from "data-base64:~assets/new_tag.svg";
 import {Logger} from "~utils/logger";
 import lottie from "lottie-web";
-import {ConversationContext} from "~porvider/sidepanel/ConversationProvider";
+import {ConversationContext} from "~provider/sidepanel/ConversationProvider";
 
 const LockAnimation = () => {
     const lockRef = useRef<HTMLDivElement>(null);
