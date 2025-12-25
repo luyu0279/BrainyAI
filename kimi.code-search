@@ -1,0 +1,419 @@
+# Query: kimi
+# ContextLines: 1
+
+148 results - 13 files
+
+README_ZH-CN.md:
+  51  | Gemini         | gemini.google.com     | 支持     |
+  52: | Moonshot       | kimi.moonshot.cn      | 支持     |
+  53  | LLama 3        | perplexity.ai         | 支持     |
+
+README.md:
+  62  | Gemini     | gemini.google.com     | Supported     |
+  63: | Moonshot     | kimi.moonshot.cn     | Supported     |
+  64  | LLama 3    | perplexity.ai     | Supported     |
+
+background/messages/kimi/create-conversation.ts:
+   3  import {ChatError, ErrorCode} from "~utils/errors";
+   4: 
+   5  
+
+   9      myHeaders.append("accept", "*/*");
+  10:     myHeaders.append("origin", "https://kimi.moonshot.cn");
+  11      // TODO
+  12      myHeaders.append("r-timezone", "Asia/Shanghai");
+  13:     myHeaders.append("referer", "https://kimi.moonshot.cn/");
+  14      // myHeaders.append("x-traffic-id", "co3939ucp7fct0va4ocg");
+  15  
+  16:     
+  17  
+
+  26  
+  27:     const r = await customChatFetch("https://kimi.moonshot.cn/api/chat",  {
+  28          method: "POST",
+
+background/messages/kimi/pre-sign-url.ts:
+   3  import {ChatError, ErrorCode} from "~utils/errors";
+   4: import {KimiBot} from "~libs/chatbot/kimi";
+   5  
+
+   9      myHeaders.append("content-type", "application/json");
+  10:     myHeaders.append("origin", "https://kimi.moonshot.cn");
+  11      // TODO
+  12      myHeaders.append("r-timezone", "Asia/Shanghai");
+  13:     myHeaders.append("referer", "https://kimi.moonshot.cn/");
+  14  
+  15:     const accessToken =  await KimiBot.getAccessToken();
+  16  
+
+  25  
+  26:     const request = await customChatFetch("https://kimi.moonshot.cn/api/pre-sign-url", {
+  27          method: "POST",
+
+background/messages/kimi/prompt-snippet-instance.ts:
+   3  import {ChatError, ErrorCode} from "~utils/errors";
+   4: import {KimiBot} from "~libs/chatbot/kimi";
+   5  
+
+   9      myHeaders.append("content-type", "application/json");
+  10:     myHeaders.append("origin", "https://kimi.moonshot.cn");
+  11      // TODO
+  12      myHeaders.append("r-timezone", "Asia/Shanghai");
+  13:     myHeaders.append("referer", "https://kimi.moonshot.cn/");
+  14:     myHeaders.append("Origin", "https://kimi.moonshot.cn");
+  15      // myHeaders.append("x-traffic-id", "7351723399195934466");
+  16:     const accessToken =  await KimiBot.getAccessToken();
+  17  
+
+  27  
+  28:     const r = await customChatFetch("https://kimi.moonshot.cn/api/prompt-snippet/instance",  {
+  29          method: "POST",
+
+background/messages/kimi/refresh-access-token.ts:
+   3  import {ChatError, ErrorCode} from "~utils/errors";
+   4: import {KimiBot} from "~libs/chatbot/kimi";
+   5  
+   6: export const kimiRefreshAccessToken = async (): Promise<[ChatError | null, any]> => {
+   7      const myHeaders = new Headers();
+   8:     myHeaders.append("authorization", "Bearer " + (await KimiBot.getRefreshToken()));
+   9:     myHeaders.append("referer", "https://kimi.moonshot.cn/");
+  10:     myHeaders.append("Origin", "https://kimi.moonshot.cn");
+  11  
+  12:     const request = await customChatFetch("https://kimi.moonshot.cn/api/auth/token/refresh", {
+  13          method: "GET",
+
+  29          if(result["access_token"] && result["refresh_token"]) {
+  30:             KimiBot.setAccessToken(result["access_token"]);
+  31:             KimiBot.setRefreshToken(result["refresh_token"]);
+  32              return [null, result];
+
+  42      // const myHeaders = new Headers();
+  43:     // myHeaders.append("authorization", "Bearer " + (await KimiBot.getRefreshToken()));
+  44:     // myHeaders.append("referer", "https://kimi.moonshot.cn/");
+  45:     // myHeaders.append("Origin", "https://kimi.moonshot.cn");
+  46      //
+  47:     // const request = await customChatFetch("https://kimi.moonshot.cn/api/auth/token/refresh", {
+  48      //     method: "GET",
+
+  64      //     if(result["access_token"] && result["refresh_token"]) {
+  65:     //         KimiBot.setAccessToken(result["access_token"])
+  66:     //         KimiBot.setRefreshToken(result["refresh_token"])
+  67      //         res.send([null, result])
+
+  73      // }
+  74:     res.send(await kimiRefreshAccessToken());
+  75  };
+
+background/ports/kimi/chat.ts:
+   1  // import type {PlasmoMessaging} from "@plasmohq/messaging"
+   2: // import {Kimi} from "~libs/chatbot/kimi";
+   3  // import {ConversationResponse, ResponseMessageType} from "~libs/open-ai/open-ai-interface";
+
+  12  //     myHeaders.append("content-type", "application/json");
+  13: //     myHeaders.append("origin", "https://kimi.moonshot.cn");
+  14  //     myHeaders.append("r-timezone", "Asia/Shanghai");
+  15: //     myHeaders.append("referer", "https://kimi.moonshot.cn/chat/" + conversationId);
+  16  //     // myHeaders.append("x-traffic-id", "co3939ucp7fct0va4ocg");
+  17  //
+  18: //     const accessToken =  await Kimi.getAccessToken()
+  19  //
+
+  34  //
+  35: //     // fetch(`https://kimi.moonshot.cn/api/chat/${conversationId}/completion/stream`, {
+  36  //     //     method: "POST",
+
+  43  //     //     .catch((error) => console.error(error));
+  44: //     fetch(`https://kimi.moonshot.cn/api/chat/${conversationId}/completion/stream`, {
+  45  //         method: "POST",
+
+contents/chat-auth-kimi.tsx:
+   5  } from "~utils";
+   6: import {KimiBot} from "~libs/chatbot/kimi";
+   7  import {Logger} from "~utils/logger";
+
+   9  export const config: PlasmoCSConfig = {
+  10:     matches: ['https://*.kimi.moonshot.cn/*--opaw*'],
+  11      all_frames: true,
+
+  14  
+  15: export default function KimiInStandaloneAuthWindow() {
+  16      const targetSourceValidator = function () {
+
+  22          if(authed) {
+  23:             KimiBot.setAccessToken(accessToken);
+  24:             KimiBot.setRefreshToken(refreshToken);
+  25  
+  26:             const kimiAuthKey = new URLSearchParams(location.search).get(KimiBot.AUTH_WINDOW_KEY);
+  27:             Logger.log("kimiAuthKey", kimiAuthKey);
+  28              void chrome.runtime.sendMessage(chrome.runtime.id, {
+  29                  action: MESSAGE_ACTION_CHAT_PROVIDER_AUTH_SUCCESS,
+  30:                 authKey: kimiAuthKey
+  31              });
+
+libs/chatbot/kimi/fileInstance.ts:
+    6  import {createUuid} from "~utils";
+    7: import {KimiBot} from "~libs/chatbot/kimi/index";
+    8  
+
+   40  
+   41: interface KimiFilePreSignResponse {
+   42      url: string;
+
+   45  
+   46: export const KimiSupportedMimeTypes =  [
+   47      "image/jpeg", // JPEG
+
+   84  
+   85: export class KimiFileSingleton implements BotFileInstance<LinkFileResponse> {
+   86:     private static instance: KimiFileSingleton;
+   87      refs = {} as BotFileInstance<LinkFileResponse>['refs'];
+
+   93  
+   94:     static getInstance(): KimiFileSingleton {
+   95:         if (!KimiFileSingleton.instance) {
+   96:             KimiFileSingleton.instance = new KimiFileSingleton();
+   97          }
+   98  
+   99:         return KimiFileSingleton.instance;
+  100      }
+
+  115  
+  116:     private async _getSignUrl(file: File): Promise<[ChatError, KimiFilePreSignResponse]> {
+  117          const [err, res] = await sendToBackground({
+  118:             name: "kimi/pre-sign-url",
+  119              body: {
+
+  126  
+  127:     private async preSignUploadUrl(file: File): Promise<[ChatError, KimiFilePreSignResponse | null]> {
+  128          const [err, res] = await this._getSignUrl(file);
+
+  131              const [refreshErr] = await sendToBackground({
+  132:                 name: "kimi/refresh-access-token",
+  133              });
+
+  147          myHeaders.append("content-type", "application/json");
+  148:         myHeaders.append("origin", "https://kimi.moonshot.cn");
+  149          // todo
+
+  152  
+  153:         const accessToken = await KimiBot.getAccessToken();
+  154  
+
+  164  
+  165:         const request = await customChatFetch("https://kimi.moonshot.cn/api/file/parse_process", {
+  166              method: "POST",
+
+  219          theHeaders.append("content-type", file.type);
+  220:         theHeaders.append("origin", "https://kimi.moonshot.cn");
+  221          // TODO
+  222          theHeaders.append("r-timezone", "Asia/Shanghai");
+  223:         theHeaders.append("referer", "https://kimi.moonshot.cn/");
+  224:         theHeaders.append("Origin", "https://kimi.moonshot.cn");
+  225  
+
+  252  
+  253:         const accessToken = await KimiBot.getAccessToken();
+  254  
+
+  264  
+  265:         const request = await customChatFetch("https://kimi.moonshot.cn/api/file", {
+  266              method: "POST",
+
+libs/chatbot/kimi/index.ts:
+   18  import {BotBase} from "~libs/chatbot/BotBase";
+   19: import KimiSessionSingleton from "~libs/chatbot/kimi/kimiSession";
+   20  import {SimpleBotMessage} from "~libs/chatbot/BotSessionBase";
+   21: import IconKimi from "data-base64:~assets/kimi.png";
+   22  import {Logger} from "~utils/logger";
+   23: import {KimiFileSingleton, KimiSupportedMimeTypes} from "~libs/chatbot/kimi/fileInstance";
+   24  import {checkModelSupportUploadPDF} from "~libs/chatbot/utils";
+   25  
+   26: const STORAGE_REFRESH_TOKEN_KEY = "kimi_refresh_token";
+   27: const STORAGE_ACCESS_TOKEN_KEY = "kimi_access_token";
+   28  
+   29: interface KimiCreateConversation {
+   30      id: string;
+
+   41  
+   42: export class KimiBot extends BotBase implements IBot {
+   43:     private fileInstance: KimiFileSingleton;
+   44      static botName = 'moonshot-v1';
+   45:     static logoSrc = IconKimi;
+   46:     static loginUrl = 'https://kimi.moonshot.cn';
+   47      static maxTokenLimit = 400 * 1000;
+   48      static get supportUploadImage() {
+   49:         return checkModelSupportUploadPDF(KimiSupportedMimeTypes);
+   50      }
+   51      static get supportUploadPDF() {
+   52:         return checkModelSupportUploadPDF(KimiSupportedMimeTypes);
+   53      }
+   54      static desc = 'Suitable for online text generation, chatbots, text summarization, and creative writing.';
+   55:     botSession: KimiSessionSingleton;
+   56      fileRefs: string[];
+
+   59          super(params);
+   60:         this.botSession = KimiSessionSingleton.getInstance(params.globalConversationId);
+   61:         this.fileInstance = KimiFileSingleton.getInstance();
+   62      }
+
+   88          const [err1] = await sendToBackground({
+   89:             name: "kimi/prompt-snippet-instance",
+   90          });
+
+   94                  const [err2] = await sendToBackground({
+   95:                     name: "kimi/refresh-access-token",
+   96                  });
+
+  134  
+  135:         Logger.trace('kimi completion', {prompt, rid, cb, fileRef, file});
+  136  
+
+  182          if (!this.botSession.session.botConversationId) {
+  183:             const [error, kimiConversation] = await this.createConversation();
+  184:             Logger.log('createConversation', error, kimiConversation);
+  185              if (error) {
+
+  193  
+  194:             this.botSession.session.setBotConversationId(kimiConversation!.id);
+  195          }
+
+  233          myHeaders.append("content-type", "application/json");
+  234:         myHeaders.append("origin", "https://kimi.moonshot.cn");
+  235          myHeaders.append("r-timezone", "Asia/Shanghai");
+  236:         myHeaders.append("referer", "https://kimi.moonshot.cn/chat/" + conversationId);
+  237          // myHeaders.append("x-traffic-id", "co3939ucp7fct0va4ocg");
+  238  
+  239:         const accessToken = await KimiBot.getAccessToken();
+  240  
+
+  262  
+  263:         fetch(`https://kimi.moonshot.cn/api/chat/${conversationId}/completion/stream?--kkm=1`, {
+  264              method: "POST",
+
+  382          const randomKey = '__window_key_' + Math.random() * 1000;
+  383:         const kimiAuthValue = createUuid();
+  384  
+  385          const url = appendParamToUrl(appendParamToUrl(
+  386:             appendParamToUrl(KimiBot.loginUrl, IS_OPEN_IN_CHAT_AUTH_WINDOW, '1'),
+  387              WINDOW_FOR_REMOVE_STORAGE_KEY, randomKey
+  388:         ), KimiBot.AUTH_WINDOW_KEY, kimiAuthValue);
+  389  
+
+  406                  if (message.action === MESSAGE_ACTION_CHAT_PROVIDER_AUTH_SUCCESS) {
+  407:                     if (message.authKey === kimiAuthValue) {
+  408                          chrome.runtime.onMessage.removeListener(listener);
+
+  416  
+  417:     private async createConversation(): Promise<[ChatError?, KimiCreateConversation?]> {
+  418          const [err, res] = await sendToBackground({
+  419:             name: "kimi/create-conversation",
+  420          });
+
+  426          const [err, res] = await sendToBackground({
+  427:             name: "kimi/prompt-snippet-instance",
+  428          });
+
+  434          const [err, res] = await sendToBackground({
+  435:             name: "kimi/refresh-access-token",
+  436          });
+
+  455      get supportedUploadTypes() {
+  456:         return KimiSupportedMimeTypes;
+  457      }
+
+  459      getBotName(): string {
+  460:         return KimiBot.logoSrc;
+  461      }
+
+  463      getLoginUrl(): string {
+  464:         return KimiBot.loginUrl;
+  465      }
+
+  467      getLogoSrc(): string {
+  468:         return KimiBot.logoSrc;
+  469      }
+
+  471      getRequireLogin(): boolean {
+  472:         return KimiBot.requireLogin;
+  473      }
+
+  475      getSupportUploadImage(): boolean {
+  476:         return KimiBot.supportUploadImage;
+  477      }
+
+  479      getSupportUploadPDF(): boolean {
+  480:         return KimiBot.supportUploadPDF;
+  481      }
+
+  483      getPaidModel(): boolean {
+  484:         return KimiBot.paidModel;
+  485      }
+
+  487      getMaxTokenLimit(): number {
+  488:         return KimiBot.maxTokenLimit;
+  489      }
+
+  491      getNewModel(): boolean {
+  492:         return KimiBot.newModel;
+  493      }
+
+libs/chatbot/kimi/kimiSession.ts:
+   2  
+   3: export default class KimiSessionSingleton {
+   4:     private static instance: KimiSessionSingleton | null;
+   5      static globalConversationId: string;
+
+   8      private constructor() {
+   9:         this.session = new BotSession(KimiSessionSingleton.globalConversationId);
+  10      }
+
+  12      static destroy() {
+  13:         KimiSessionSingleton.globalConversationId = "";
+  14:         KimiSessionSingleton.instance = null;
+  15      }
+
+  17      static getInstance(globalConversationId: string) {
+  18:         if (globalConversationId !== KimiSessionSingleton.globalConversationId) {
+  19:             KimiSessionSingleton.destroy();
+  20          }
+  21  
+  22:         KimiSessionSingleton.globalConversationId = globalConversationId;
+  23  
+  24:         if (!KimiSessionSingleton.instance) {
+  25:             KimiSessionSingleton.instance = new KimiSessionSingleton();
+  26          }
+  27  
+  28:         return KimiSessionSingleton.instance;
+  29      }
+
+provider/ModelManagementProvider.tsx:
+   3  import {Llavav1634b} from "~libs/chatbot/perplexity/Llavav1634b";
+   4: import {KimiBot} from "~libs/chatbot/kimi";
+   5  import {CopilotBot} from "~libs/chatbot/copilot";
+
+  21      | typeof CopilotBot
+  22:     | typeof KimiBot
+  23      | typeof Gemma7bIt
+
+  52  export default function ModelManagementProvider({children}) {
+  53:     const defaultModels: Ms = [ChatGPT35Turbo, CopilotBot, KimiBot];
+  54      const [currentBots, setCurrentBots] = useState<IModelManagementProvider['currentBots']>(defaultModels);
+  55:     const allModels = useRef<Ms>([Llama3SonarLarge32KChat, Llama3SonarLarge32kOnline, Claude3Haiku, ChatGPT35Turbo, ChatGPT4O, ChatGPT4Turbo, CopilotBot, KimiBot, Llama370bInstruct, Gemma7bIt, Llavav1634b, Mistral822b]);
+  56      const storage = new Storage();
+
+  68              label: "Moonshot",
+  69:             models: [KimiBot]
+  70          },
+
+rulesets/rule.json:
+   97                      "header": "Origin",
+   98:                     "value": "https://kimi.moonshot.cn",
+   99                      "operation": "set"
+
+  102                      "header": "Referer",
+  103:                     "value": "https://kimi.moonshot.cn/",
+  104                      "operation": "set"
+
+  108          "condition": {
+  109:             "urlFilter": "https://kimi.moonshot.cn/api*",
+  110              "resourceTypes": [

@@ -1,0 +1,34 @@
+# Query: import {KimiBot} from "~libs/chatbot/kimi";
+# ContextLines: 1
+
+6 results - 6 files
+
+background/messages/kimi/create-conversation.ts:
+  3  import {ChatError, ErrorCode} from "~utils/errors";
+  4: 
+  5  
+
+background/messages/kimi/pre-sign-url.ts:
+  3  import {ChatError, ErrorCode} from "~utils/errors";
+  4: 
+  5  
+
+background/messages/kimi/prompt-snippet-instance.ts:
+  3  import {ChatError, ErrorCode} from "~utils/errors";
+  4: 
+  5  
+
+background/messages/kimi/refresh-access-token.ts:
+  3  import {ChatError, ErrorCode} from "~utils/errors";
+  4: 
+  5  
+
+contents/chat-auth-kimi.tsx:
+  5  } from "~utils";
+  6: 
+  7  import {Logger} from "~utils/logger";
+
+provider/ModelManagementProvider.tsx:
+  3  import {Llavav1634b} from "~libs/chatbot/perplexity/Llavav1634b";
+  4: 
+  5  import {CopilotBot} from "~libs/chatbot/copilot";
